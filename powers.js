@@ -1,7 +1,8 @@
 // event listeners
 
 document.querySelector("#activate-flight").addEventListener("click", (event) => {
-  flightHandlerFunction();
+  let currentPowerId = event.target.id.split("-")[1]
+ activatePower(currentPowerId)
 })
 
 document.querySelector("#activate-mindreading").addEventListener("click", (event) => {
@@ -23,11 +24,11 @@ document.querySelector("#deactivate-all").addEventListener("click", (event) => {
 
 // event handler functions
 
-// const deactivatePower = (event) => {
-//   let powerSection = document.querySelector(`#${event.target.classList}`)
-//   powerSection.classList.remove("disabled")
-//   powerSection.classList.add("enabled")
-// }
+const activatePower = (sectionId) => {
+  let currentPowerSection = document.getElementById(sectionId)
+  currentPowerSection.classList.remove("disabled");
+  currentPowerSection.classList.add("enabled");
+}
 
 const flightHandlerFunction = () => {
  const flightSection = document.querySelector("#flight")
@@ -49,7 +50,6 @@ const xrayHandlerFunction = () => {
 }
 
 const powers = document.querySelectorAll(".power")
-console.log(powers)
 
 const activateAllPowers = () => {
   for (let i = 0; i < powers.length; i++) {
