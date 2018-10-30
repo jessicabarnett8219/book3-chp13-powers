@@ -25,16 +25,17 @@ document.querySelector("#deactivate-all").addEventListener("click", (event) => {
 )
 
 
-// event handler functions
-
+// event handler, generic - used on individual powers
 const activatePower = (sectionId) => {
   let currentPowerSection = document.getElementById(sectionId)
   currentPowerSection.classList.remove("disabled");
   currentPowerSection.classList.add("enabled");
 }
 
+// obtain reference to the collection of powers sections
 const powers = document.querySelectorAll(".power")
 
+// event handler for activate all powers button
 const activateAllPowers = () => {
   for (let i = 0; i < powers.length; i++) {
     let currentPower = powers[i];
@@ -43,6 +44,7 @@ const activateAllPowers = () => {
   }
 }
 
+// event handler for deactivate all powers button
 const deactivateAllPowers = () => {
   for (let i = 0; i < powers.length; i++) {
     let currentPower = powers[i];
