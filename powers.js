@@ -15,20 +15,17 @@ document.querySelector("#activate-xray").addEventListener("click", (event) => {
   activatePower(currentPowerId)})
 
 document.querySelector("#activate-all").addEventListener("click", (event) => {
-  allPowersHandler();
-}
+  activateAllPowers()
+  }
 )
 
 document.querySelector("#deactivate-all").addEventListener("click", (event) => {
-  allPowersHandler();
+  deactivateAllPowers()
   }
 )
 
 
 // event handler functions
-
-const powers = document.querySelectorAll(".power")
-
 
 const activatePower = (sectionId) => {
   let currentPowerSection = document.getElementById(sectionId)
@@ -36,17 +33,21 @@ const activatePower = (sectionId) => {
   currentPowerSection.classList.add("enabled");
 }
 
-const allPowersHandler = () => {
+const powers = document.querySelectorAll(".power")
+
+const activateAllPowers = () => {
   for (let i = 0; i < powers.length; i++) {
     let currentPower = powers[i];
-    if (currentPower.classList.contains("disabled")) {
-      currentPower.classList.remove("disabled")
-      currentPower.classList.add("enabled")
-    } else if (currentPower.classList.contains("enabled")) {
-      currentPower.classList.remove("enabled")
-      currentPower.classList.add("disabled")
-    }
+    currentPower.classList.remove("disabled")
+    currentPower.classList.add("enabled")
   }
 }
 
+const deactivateAllPowers = () => {
+  for (let i = 0; i < powers.length; i++) {
+    let currentPower = powers[i];
+    currentPower.classList.remove("enabled")
+    currentPower.classList.add("disabled")
+  }
+}
 
